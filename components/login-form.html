@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Formulaire de connexion responsive avec Tailwind CSS et AlpineJS</title>
+        <title>Login form with Tailwind CSS & AlpineJS</title>
 
         <!-- Tailwind CSS -->
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -21,9 +21,9 @@
     <body class="antialiased bg-gray-200" style="font-family: 'Montserrat';">
         <main class="max-w-lg p-8 mx-2 mt-12 bg-white rounded-sm shadow-sm md:mx-auto">
             <section class="pt-2 pb-4">
-                <h1 class="text-xl font-extrabold uppercase font-montserrat">SE CONNECTER</h1>
+                <h1 class="text-xl font-extrabold uppercase font-montserrat">Login</h1>
                 <p class="text-sm text-gray-400 font-montserrat">
-                    Toute création est un songe éveillé.
+                    The creative adult is the child who survived.
                 </p>
             </section>
 
@@ -32,7 +32,7 @@
                     <!-- Username -->
                     <div class="pt-3 mb-6 bg-gray-100 rounded-sm">
                         <label class="block mx-3 mb-2 text-xs font-bold text-gray-700 uppercase font-montserrat" for="username">
-                            Nom d'utilisateur
+                            Username
                         </label>
                         <input type="text" 
                                id="username" 
@@ -45,7 +45,7 @@
                     <!-- Password -->
                     <div class="pt-3 mb-6 bg-gray-100 rounded-sm">
                         <label class="block mx-3 mb-2 text-xs font-bold text-gray-700 uppercase font-montserrat" for="password">
-                            Mot de passe
+                            Password
                         </label>
                         <input type="password" 
                                id="password" 
@@ -61,10 +61,9 @@
                                 <input type="checkbox" id="remember_me" name="remember" class="hidden" x-bind:checked="checked">
                                 <div class="flex cursor-pointer" @click="checked = ! checked">
                                     <!-- Checkbox -->
-                                    <div :class="checked ? 'bg-blue-600' : 'bg-gray-200'" class="w-4 h-4 mr-3 rounded-sm "></div>
-                                    <span
-                                          class="text-xs font-bold text-gray-600 transition duration-300 font-montserrat hover:text-gray-400 ">
-                                        Rester connecté
+                                    <div :class="checked ? 'bg-blue-600' : 'bg-gray-200'" class="w-4 h-4 mr-3 rounded-sm"></div>
+                                    <span class="text-xs font-bold text-gray-600 transition duration-300 font-montserrat">
+                                        Stay connected
                                     </span>
                                 </div>
                             </label>
@@ -72,13 +71,13 @@
 
                         <!-- Forgot your password -->
                         <a href="#" class="text-xs font-bold text-gray-600 transition duration-300 cursor-pointer font-montserrat hover:text-gray-400">
-                            Mot de passe oublié ?
+                            Forgot password?
                         </a>
                     </div>
 
                     <button type="submit" 
                             class="p-6 mb-4 text-sm font-bold text-white uppercase transition duration-300 bg-blue-600 rounded-sm shadow-sm font-montserrat focus:outline-none hover:bg-blue-900 hover:shadow-md">
-                        Se connecter
+                        Login
                     </button>
                 </form>
             </section>

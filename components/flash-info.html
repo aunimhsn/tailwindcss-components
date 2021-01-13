@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register form with Tailwind CSS</title>
+
+        <!-- Tailwind CSS -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- Alpine JS -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    </head>
+
+    <body class="antialiased bg-gray-200 min-h-screen" style="font-family: 'Montserrat';">
+
+        <div x-data="flash()">
+            <!-- Flash message: hidden by default -->
+            <div>
+
+            </div>
+
+            <div class="flex flex-col h-screen">      
+                <div class="bg-white m-auto p-8 shadow-md">
+                    <!-- Title -->
+                    <h1 class="text-lg font-extrabold mt-4">Flash message : INFO</h1>
+                    <h2 class="text-sm text-gray-400 mb-8">Alpine JS & Tailwind CSS</h1>
+
+                    <!-- Button to trigger the flash message -->
+                    <div class="flex">
+                        <div class="flex-1">
+                            <button class="bg-blue-600 focus:outline-none text-white p-8 rounded-sm w-full hover:bg-blue-900 transition duration-300 ease-in-out">
+                                Display
+                            </button>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div>
+    </body>
+
+</html>

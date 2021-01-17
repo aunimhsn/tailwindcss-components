@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,7 +89,7 @@
                              x-transition:leave-start="opacity-100 transform translate-y-0"
                              x-transition:leave-end="opacity-0 transform -translate-y-48 md:-translate-y-32"       
                         >
-                            <a href="#" class="flex hover:bg-gray-200 py-3 px-6 items-center">
+                            <a href="#" class="flex items-center hover:bg-gray-200 py-3 px-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                                      class="w-3 text-gray-400 mr-3"
                                 >
@@ -99,7 +98,7 @@
                                 </svg>
                                 <div class="text-xs">My account</div>
                             </a>
-                            <a href="#" class="flex hover:bg-gray-200 text-sm py-3 px-6">
+                            <a href="#" class="flex items-center hover:bg-gray-200 text-sm py-3 px-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                      class="w-3 text-gray-400 mr-3"
                                 >
@@ -108,7 +107,7 @@
                                 </svg>
                                 <div class="text-xs">Settings</div>
                             </a>
-                            <a href="#" class="flex hover:bg-gray-200 text-sm py-3 px-6">
+                            <a href="#" class="flex items-center hover:bg-gray-200 text-sm py-3 px-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                      class="w-3 text-gray-400 mr-3"
                                 >
@@ -180,13 +179,9 @@
 
         <script>
             function navbar() {
-                
                 return {
-
                     isNavbarVisible: true,
-
                     isHamburgerMenuVisible: false,
-
                     isUserMenuVisible: false,
 
                     pageYOffset: window.pageYOffset,
@@ -197,12 +192,8 @@
                         
                         if (this.isNavbarVisible === false) this.isUserMenuVisible = false;
                     }
-
                 }
-
             } 
         </script>
-
     </body>
-
 </html>

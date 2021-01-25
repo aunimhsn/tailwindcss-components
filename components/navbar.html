@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Navbar, with Tailwind CSS & AlpineJS</title>
+        <title>Navbar tooggling on scroll detection, with Tailwind CSS & AlpineJS</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="../img/favicon.png" />
 
         <!-- Tailwind CSS -->
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -46,7 +49,10 @@
         
                     <!-- Mobile: Hamburger -->
                     <div class="flex md:hidden">
-                        <button type="button" class="focus:outline-none" @click="isHamburgerMenuVisible = ! isHamburgerMenuVisible">
+                        <button type="button" 
+                                class="focus:outline-none" 
+                                @click="isHamburgerMenuVisible = ! isHamburgerMenuVisible"
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                                  class="w-5 text-gray-400 transition duration-500 ease-out fill-current hover:text-black">
                                 <!-- Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
@@ -92,7 +98,8 @@
                              x-transition:leave-end="opacity-0 transform -translate-y-48 md:-translate-y-32"       
                         >
                             <a href="#" class="flex items-center hover:bg-gray-200 py-3 px-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                <svg xmlns="http://www.w3.org/2000/svg" 
+                                     viewBox="0 0 448 512"
                                      class="w-3 text-gray-400 mr-3"
                                 >
                                     <!-- Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
@@ -101,7 +108,8 @@
                                 <div class="text-xs">My account</div>
                             </a>
                             <a href="#" class="flex items-center hover:bg-gray-200 text-sm py-3 px-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                <svg xmlns="http://www.w3.org/2000/svg" 
+                                     viewBox="0 0 512 512"
                                      class="w-3 text-gray-400 mr-3"
                                 >
                                     <!-- Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
@@ -110,7 +118,8 @@
                                 <div class="text-xs">Settings</div>
                             </a>
                             <a href="#" class="flex items-center hover:bg-gray-200 text-sm py-3 px-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                <svg xmlns="http://www.w3.org/2000/svg" 
+                                     viewBox="0 0 512 512"
                                      class="w-3 text-gray-400 mr-3"
                                 >
                                     <!-- Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->

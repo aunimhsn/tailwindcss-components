@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive cards grid, with Tailwind CSS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
+
+    <!-- Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Alpine JS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body class="antialiased bg-gray-200" style="font-family: 'Montserrat';">
+    <div class="max-w-5xl mx-auto my-20">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-6">
+            <div class="bg-white rounded-sm overflow-hidden shadow-md">
+                <img src="https://picsum.photos/id/236/800/500" alt="" class="object-cover">
+                
+                <h4 class="mx-8 mt-8 font-bold text-xl">Laravel 8</h4>
+                <p class="mx-8 text-xs uppercase font-bold text-gray-400">Route Caching</p>
+                <p class="mx-8 mb-8 text-xs text-blue-400">#php #laravel #news #backend</p>
+                <p class="mx-8 mb-8 text-xs text-justify leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit officia obcaecati optio eaque voluptas exercitationem harum, ab und...</p>
+                <p class="mx-8 mb-8 text-xs text-right italic text-gray-400">Written by @sylent, 2 hours ago</p>
+            </div>
+            <div class="bg-white rounded-sm overflow-hidden shadow-md">
+                <img src="https://picsum.photos/id/231/800/500" alt="" class="object-cover">
+                
+                <h4 class="mx-8 mt-8 font-bold text-xl">VueJS 3</h4>
+                <p class="mx-8 text-xs uppercase font-bold text-gray-400">New features</p>
+                <p class="mx-8 mb-8 text-xs text-blue-400">#front #vuejs #news #js</p>
+                <p class="mx-8 mb-8 text-xs text-justify leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit officia obcaecati optio eaque voluptas exercitationem harum, ab und...</p>
+                <p class="mx-8 mb-8 text-xs text-right italic text-gray-400">Written by @sylent, 10 hours ago</p>
+            </div>
+            <div class="bg-white rounded-sm overflow-hidden shadow-md">
+                <img src="https://picsum.photos/id/125/800/500" alt="" class="object-cover">
+                
+                <h4 class="mx-8 mt-8 font-bold text-xl">Digital Painting</h4>
+                <p class="mx-8 text-xs uppercase font-bold text-gray-400">Soft edge & hard edge</p>
+                <p class="mx-8 mb-8 text-xs text-blue-400">#painting #digital #photoshop</p>
+                <p class="mx-8 mb-8 text-xs text-justify leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit officia obcaecati optio eaque voluptas exercitationem harum, ab und...</p>
+                <p class="mx-8 mb-8 text-xs text-right italic text-gray-400">Written by @sylent, 1 day ago</p>
+            </div>
+            <div class="bg-white rounded-sm overflow-hidden shadow-md">
+                <img src="https://picsum.photos/id/145/800/500" alt="" class="object-cover">
+                
+                <h4 class="mx-8 mt-8 font-bold text-xl">Alpine JS</h4>
+                <p class="mx-8 text-xs uppercase font-bold text-gray-400">Minimalist front-end framework</p>
+                <p class="mx-8 mb-8 text-xs text-blue-400">#front #alpinejs #minimalist #js</p>
+                <p class="mx-8 mb-8 text-xs text-justify leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit officia obcaecati optio eaque voluptas exercitationem harum, ab und...</p>
+                <p class="mx-8 mb-8 text-xs text-right italic text-gray-400">Written by @sylent, 3 days ago</p>
+            </div>
+            <div class="bg-white rounded-sm overflow-hidden shadow-md">
+                <img src="https://picsum.photos/id/99/800/500" alt="" class="object-cover">
+                
+                <h4 class="mx-8 mt-8 font-bold text-xl">Argentina</h4>
+                <p class="mx-8 text-xs uppercase font-bold text-gray-400">San Martin de Los Andes</p>
+                <p class="mx-8 mb-8 text-xs text-blue-400">#travel #hiking #fresh #inspiration</p>
+                <p class="mx-8 mb-8 text-xs text-justify leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit officia obcaecati optio eaque voluptas exercitationem harum, ab und...</p>
+                <p class="mx-8 mb-8 text-xs text-right italic text-gray-400">Written by @sylent, 5 days ago</p>
+            </div>
+            <div class="bg-white rounded-sm overflow-hidden shadow-md">
+                <img src="https://picsum.photos/id/366/800/500" alt="" class="object-cover">
+                
+                <h4 class="mx-8 mt-8 font-bold text-xl">Chess</h4>
+                <p class="mx-8 text-xs uppercase font-bold text-gray-400">London system</p>
+                <p class="mx-8 mb-8 text-xs text-blue-400">#chess #opening #system #white</p>
+                <p class="mx-8 mb-8 text-xs text-justify leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit officia obcaecati optio eaque voluptas exercitationem harum, ab und...</p>
+                <p class="mx-8 mb-8 text-xs text-right italic text-gray-400">Written by @sylent, 30 November 2020</p>
+            </div>
+        </div>            
+    </div>
+</body>

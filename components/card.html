@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article Card, with Tailwind CSS</title>
+    <title>Card, with Tailwind CSS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
 
     <!-- Tailwind CSS -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -19,17 +22,16 @@
 <body class="antialiased bg-gray-200" style="font-family: 'Montserrat';">
 
     <div class="flex h-screen items-center justify-center">
-        <div class="flex flex-col bg-white w-1/5 rounded-sm overflow-hidden shadow-md">
-            <img src="https://picsum.photos/seed/picsum/300/250" alt="">
+        <div class="flex flex-col bg-white max-w-sm rounded-sm overflow-hidden shadow-md">
+            <img src="https://picsum.photos/seed/picsum/300/250" alt="" class="object-cover">
             
             <h4 class="mx-8 mt-8 font-bold text-xl">Laravel 8</h4>
-            <p class="mx-8 mb-8 text-xs uppercase font-bold text-gray-400">Route Caching</p>
-            <!-- <span class="mx-8 mb-8 text-xs text-blue-600">#php #laravel #news #backend</span> -->
-            <p class="mx-8 mb-8 text-xs text-justify leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ipsa et totam praesentium laborum! Nam sunt facilis et, voluptatum omnis, impedit officia obcaecati optio eaque voluptas exercitationem harum, ab unde?</p>
+            <p class="mx-8 text-xs uppercase font-bold text-gray-400">Route Caching</p>
+            <span class="mx-8 mb-8 text-xs text-blue-400">#php #laravel #news #backend</span>
+            <p class="mx-8 mb-8 text-xs text-justify leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit officia obcaecati optio eaque voluptas exercitationem harum, ab und...</p>
             <p class="mx-8 mb-8 text-xs text-right italic text-gray-400">Written by @sylent, 2 hours ago</p>
         </div>
     </div>
-
-    <!-- Date + nombre de commentaire + author + reading time -->
 </body>
+
 </html>

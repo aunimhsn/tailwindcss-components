@@ -15,38 +15,43 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
         <!-- Alpine JS -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </head>
 
-    <body x-data="{ isModalVisible: false }" class="antialiased bg-gray-200 min-h-screen" style="font-family: 'Montserrat';"> 
-        <div class="flex flex-col h-screen items-center justify-center">      
-            <div class="bg-white p-8 shadow-md rounded-sm">
-                <!-- Title -->
-                <h1 class="text-lg font-extrabold">Lightbox</h1>
-                <h2 class="text-sm text-gray-400 mb-8">Alpine JS & Tailwind CSS</h1>
+    <body class="antialiased bg-gray-200 min-h-screen" style="font-family: 'Montserrat';"> 
+
+
+        <!-- On click, lightbox,  need ti be just under body tag to avoid conflicts -->
+        <div x-data="{ isLightboxVisible: false, isOverlayVisible: false, likesCount: 85, commentsCount: 7 }">
+
+            <div class="flex flex-col h-screen items-center justify-center">      
+                <div class="bg-white p-8 shadow-md rounded-sm">
+                    <!-- Title -->
+                    <h1 class="text-lg font-extrabold">Lightbox</h1>
+                    <h2 class="text-sm text-gray-400 mb-8">Alpine JS & Tailwind CSS</h1>
 
                     <!-- Lightbox -->
-                    <div x-data="{ isLightboxVisible: false, isOverlayVisible: false, likesCount: 85, commentsCount: 7 }"
-                         class="relative w-64 cursor-pointer shadow-md"
+                    <div class="relative w-64 cursor-pointer shadow-md"
                          @mouseover="isOverlayVisible = true"
                          @mouseover.away="isOverlayVisible = false"
-                         @click="isLightBoxVisible = true"
-                         @click.away="isLightBoxVisible = false"
+                         @click="isLightboxVisible = true"
+                         @click.away="isLightboxVisible = false"
                     >
                         <!-- Image -->
-                        <img src="https://picsum.photos/id/411/1024/1024" />
+                        <img src="https://picsum.photos/id/441/1024/1024" />
 
                         <!-- On hover, overlay -->
                         <div class="absolute top-0 left-0 bg-black bg-opacity-60 w-full h-full"
-                             x-show="isOverlayVisible"
-                             x-transition:enter="transition ease-out duration-300"
-                             x-transition:enter-start="opacity-0"
-                             x-transition:enter-end="opacity-100"
-                             x-transition:leave="transition ease-in duration-200"
-                             x-transition:leave-start="opacity-100"
-                             x-transition:leave-end="opacity-0"
+                                x-show="isOverlayVisible"
+                                x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="opacity-0"
+                                x-transition:enter-end="opacity-100"
+                                x-transition:leave="transition ease-in duration-200"
+                                x-transition:leave-start="opacity-100"
+                                x-transition:leave-end="opacity-0"
                         >
                             <!-- Overlay content -->
                             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 text-white">
@@ -65,28 +70,51 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>             
+            </div>
 
-                        <!-- On click, lightbox -->
-                        
+            <!-- On click, lightbox -->
+            <div class="absolute top-0 left-0 flex flex-col bg-black bg-opacity-30 w-full h-screen z-40"
+                 x-show="isLightboxVisible"
+            >
+                <!-- Navigation bar -->
+                <div class="bg-white flex items-center justify-between p-4">
+                    <!-- Author info -->
+                    <div class="flex items-center">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 24 24"
+                                 class="h-4 w-4 fill-current text-black mr-2"
+                            >
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7.753 18.305c-.261-.586-.789-.991-1.871-1.241-2.293-.529-4.428-.993-3.393-2.945 3.145-5.942.833-9.119-2.489-9.119-3.388 0-5.644 3.299-2.489 9.119 1.066 1.964-1.148 2.427-3.393 2.945-1.084.25-1.608.658-1.867 1.246-1.405-1.723-2.251-3.919-2.251-6.31 0-5.514 4.486-10 10-10s10 4.486 10 10c0 2.389-.845 4.583-2.247 6.305z"/>
+                            </svg>
+                        </div>
 
+                        <div class="font-semibold text-xs" style="font-family: 'Poppins';">
+                            sylent
+                        </div>
                     </div>
 
-
-                    <div class="relative w-64">
-                        
-                        <div class="absolute top-0 bg-black bg-opacity-30 w-full h-full">
-                            <span class="text-white">
-                                Coeur
-                            </span>
-                        </div>
-                        <div class=""
-                             x-show="isLightboxVisible"
+                    <!-- Close -->
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                             viewBox="0 0 24 24" 
+                             class="h-3 w-3 fill-current text-black"
+                             @click="isLightboxVisible = false"
                         >
-                        </div>                    
-                  </div>
-            </div>             
+                            <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
+                        </svg>
+                    </div>
+                </div>
+                <!-- Likes / Comments / Share -->
+
+                <div class="bg-white">
+                    <!-- Case: image square (width = height) -->
+                    <img src="https://picsum.photos/id/441/1024/1024" class="object-cover w-full" />
+                </div>
+
+            </div>
         </div>
     </body>
-
-
 </html>

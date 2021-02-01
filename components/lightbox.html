@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lightbox, with Tailwind CSS & AlpineJS</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="../img/favicon.png" />
+
+        <!-- Tailwind CSS -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- Alpine JS -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    </head>
+
+    <body x-data="{ isModalVisible: false }" class="antialiased bg-gray-200 min-h-screen" style="font-family: 'Montserrat';"> 
+        <div class="flex flex-col h-screen items-center justify-center">      
+            <div class="bg-white p-8 shadow-md rounded-sm">
+                <!-- Title -->
+                <h1 class="text-lg font-extrabold">Lightbox</h1>
+                <h2 class="text-sm text-gray-400 mb-8">Alpine JS & Tailwind CSS</h1>
+
+                    <!-- Lightbox -->
+                    <div x-data="{ isLightboxVisible: false, isOverlayVisible: false, likesCount: 85, commentsCount: 7 }"
+                         class="relative w-64 cursor-pointer shadow-md"
+                         @mouseover="isOverlayVisible = true"
+                         @mouseover.away="isOverlayVisible = false"
+                         @click="isLightBoxVisible = true"
+                         @click.away="isLightBoxVisible = false"
+                    >
+                        <!-- Image -->
+                        <img src="https://picsum.photos/id/411/1024/1024" />
+
+                        <!-- On hover, overlay -->
+                        <div class="absolute top-0 left-0 bg-black bg-opacity-60 w-full h-full"
+                             x-show="isOverlayVisible"
+                             x-transition:enter="transition ease-out duration-300"
+                             x-transition:enter-start="opacity-0"
+                             x-transition:enter-end="opacity-100"
+                             x-transition:leave="transition ease-in duration-200"
+                             x-transition:leave-start="opacity-100"
+                             x-transition:leave-end="opacity-0"
+                        >
+                            <!-- Overlay content -->
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 text-white">
+                                <div class="flex items-center justify-around">        
+                                    <!-- Likes count -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current w-4 h-4 mr-2">
+                                        <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/>
+                                    </svg>
+                                    <div class="text-sm text-white" x-text="likesCount"></div>
+
+                                    <!-- Comments count -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current w-4 h-4 ml-6 mr-2">
+                                        <path d="M12 1c-6.628 0-12 4.573-12 10.213 0 2.39.932 4.591 2.427 6.164l-2.427 5.623 7.563-2.26c9.495 2.598 16.437-3.251 16.437-9.527 0-5.64-5.372-10.213-12-10.213z"/>
+                                    </svg>
+                                    <div class="text-sm text-white" x-text="commentsCount"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- On click, lightbox -->
+                        
+
+                    </div>
+
+
+                    <div class="relative w-64">
+                        
+                        <div class="absolute top-0 bg-black bg-opacity-30 w-full h-full">
+                            <span class="text-white">
+                                Coeur
+                            </span>
+                        </div>
+                        <div class=""
+                             x-show="isLightboxVisible"
+                        >
+                        </div>                    
+                  </div>
+            </div>             
+        </div>
+    </body>
+
+
+</html>

@@ -25,7 +25,7 @@
 
 
         <!-- On click, lightbox,  need ti be just under body tag to avoid conflicts -->
-        <div x-data="{ isLightboxVisible: false, isOverlayVisible: false, likesCount: 85, commentsCount: 7 }">
+        <div x-data="{ isLightboxVisible: false, isOverlayVisible: false, isLiked: false, likesCount: 85, commentsCount: 7 }">
 
             <div class="flex flex-col h-screen items-center justify-center">      
                 <div class="bg-white p-8 shadow-md rounded-sm">
@@ -38,7 +38,6 @@
                          @mouseover="isOverlayVisible = true"
                          @mouseover.away="isOverlayVisible = false"
                          @click="isLightboxVisible = true"
-                         @click.away="isLightboxVisible = false"
                     >
                         <!-- Image -->
                         <img src="https://picsum.photos/id/441/1024/1024" />
@@ -77,10 +76,11 @@
             <!-- On click, lightbox -->
             <div class="absolute top-0 left-0 flex flex-col bg-black bg-opacity-30 w-full h-screen z-40"
                  x-show="isLightboxVisible"
+                 @click.away="isLightboxVisible = false"
             >
                 <!-- Navigation bar -->
                 <div class="bg-white flex items-center justify-between p-4">
-                    <!-- Author info -->
+                    <!-- Author -->
                     <div class="flex items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -100,18 +100,55 @@
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" 
                              viewBox="0 0 24 24" 
-                             class="h-3 w-3 fill-current text-black"
+                             class="h-3 w-3 fill-current text-black cursor-pointer"
                              @click="isLightboxVisible = false"
                         >
                             <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
                         </svg>
                     </div>
                 </div>
-                <!-- Likes / Comments / Share -->
 
                 <div class="bg-white">
                     <!-- Case: image square (width = height) -->
                     <img src="https://picsum.photos/id/441/1024/1024" class="object-cover w-full" />
+                </div>
+
+                <!-- Likes / Share /Comments  -->
+                <div class="bg-white flex items-center p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         viewBox="0 0 24 24"
+                         class="h-4 w-4 fill-current text-black cursor-pointer"
+                         @click="isLiked = true; likesCount++;"
+                         x-show="! isLiked"
+                    >
+                        <path d="M6.28 3c3.236.001 4.973 3.491 5.72 5.031.75-1.547 2.469-5.021 5.726-5.021 2.058 0 4.274 1.309 4.274 4.182 0 3.442-4.744 7.851-10 13-5.258-5.151-10-9.559-10-13 0-2.676 1.965-4.193 4.28-4.192zm.001-2c-3.183 0-6.281 2.187-6.281 6.192 0 4.661 5.57 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-4.011-3.097-6.182-6.274-6.182-2.204 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248z"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         class="h-4 w-4 fill-current text-red-500 cursor-pointer"
+                         @click="isLiked = false; likesCount--;"
+                         x-show="isLiked"
+                    >
+                        <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/>
+                    </svg>
+                    <div x-text="likesCount" class="text-xs font-semibold ml-2"></div>
+                </div>
+
+                <!-- Add comment  -->
+                <div class="bg-white flex items-center">
+                    <form @submit.prevent="search()" class="flex-1">
+                        <div class="flex">
+                            <input type="text" 
+                                   name="comment" 
+                                   placeholder="Ajouter un commentaire..." 
+                                   class="flex-1 text-xs rounded-sm bg-gray-100 py-2 px-4 focus:outline-none "  
+                            />
+                            <button type="submit" class="bg-black text-white text-xs px-4">
+                                Publier
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
             </div>

@@ -219,7 +219,7 @@
                                 />
                                 <button type="submit" 
                                         class="text-xs px-4 focus:outline-none"
-                                        :class="(isPublishButtonEnabled) ? 'bg-black text-white' : 'bg-gray-200 text-gray-400 cursor-not-allowed'"
+                                        :class="(isPublishButtonEnabled) ? 'bg-black text-white transition duration-300 ease-in-out hover:bg-gray-600' : 'bg-gray-200 text-gray-400 cursor-not-allowed'"
                                         style="font-family: Poppins;"
                                         x-bind:disabled="! isPublishButtonEnabled"
                                 >

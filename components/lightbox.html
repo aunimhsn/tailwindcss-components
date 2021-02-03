@@ -23,9 +23,8 @@
 
     <body class="antialiased bg-gray-200 min-h-screen" style="font-family: 'Montserrat';"> 
 
-
         <!-- On click, lightbox,  need ti be just under body tag to avoid conflicts -->
-        <div x-data="{ isLightboxVisible: false, isOverlayVisible: false, isCommentsVisible: false, isLiked: false, likesCount: 85, commentsCount: 7 }">
+        <div x-data="lightbox()">
 
             <div class="flex flex-col h-screen items-center justify-center">      
                 <div class="bg-white p-8 shadow-md rounded-sm">
@@ -40,7 +39,7 @@
                          @click="isLightboxVisible = true"
                     >
                         <!-- Image -->
-                        <img src="https://picsum.photos/id/441/1024/1024" />
+                        <img src="https://picsum.photos/id/301/1024/1024" />
 
                         <!-- On hover, overlay -->
                         <div class="absolute top-0 left-0 bg-black bg-opacity-60 w-full h-full"
@@ -65,7 +64,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current w-4 h-4 ml-6 mr-2">
                                         <path d="M12 1c-6.628 0-12 4.573-12 10.213 0 2.39.932 4.591 2.427 6.164l-2.427 5.623 7.563-2.26c9.495 2.598 16.437-3.251 16.437-9.527 0-5.64-5.372-10.213-12-10.213z"/>
                                     </svg>
-                                    <div class="text-sm text-white" x-text="commentsCount"></div>
+                                    <div class="text-sm text-white" x-text="commentsCount()"></div>
                                 </div>
                             </div>
                         </div>
@@ -76,13 +75,18 @@
             <!-- On click, lightbox BG -->
             <div class="absolute top-0 left-0 flex flex-col bg-black bg-opacity-60 w-full min-h-screen z-40"
                  x-show="isLightboxVisible"
+                 x-transition:enter="transition ease-in duration-300"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition ease-out duration-200"
+                 x-transition:leave-start="opacity-100 transform translate-y-0"
+                 x-transition:leave-end="opacity-0 transform -translate-y-16"
             >
                 <!-- Lightbox -->
                 <div class="max-w-3xl mx-auto my-16 shadow-md"
                      @click.away="isLightboxVisible = false"
                 >
 
-                
                     <!-- Navigation bar -->
                     <div class="bg-white flex items-center justify-between p-4">
                         <!-- Author -->
@@ -105,7 +109,7 @@
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 viewBox="0 0 24 24" 
-                                class="h-3 w-3 fill-current text-black cursor-pointer"
+                                class="h-3 w-3 fill-current text-black cursor-pointer transition duration-300 hover:text-gray-400"
                                 @click="isLightboxVisible = false"
                             >
                                 <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
@@ -114,15 +118,15 @@
                     </div>
 
                     <div>
-                        <!-- Case: image square (width = height) -->
-                        <img src="https://picsum.photos/id/441/1024/1024" class="object-cover w-full" />
+                        <img src="https://picsum.photos/id/301/1024/1024" class="object-cover w-full" />
                     </div>
 
-                    <!-- Likes / Share /Comments  -->
-                    <div class="bg-white flex items-center pb-2 pt-4 px-4">
+                    <!-- Likes  -->
+                    <div class="bg-white flex items-center pt-4 px-4">
                         <svg xmlns="http://www.w3.org/2000/svg" 
                             viewBox="0 0 24 24"
                             class="h-4 w-4 fill-current text-black cursor-pointer"
+                            title="Like"
                             @click="isLiked = true; likesCount++;"
                             x-show="! isLiked"
                         >
@@ -132,6 +136,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             class="h-4 w-4 fill-current text-red-500 cursor-pointer"
+                            title="Dislike"
                             @click="isLiked = false; likesCount--;"
                             x-show="isLiked"
                         >
@@ -140,37 +145,85 @@
                         <div x-text="likesCount" class="text-xs font-semibold ml-2"></div>
                     </div>
 
-                    <!-- Quote  -->
-                    <div class="bg-white flex items-center py-2 px-4">
-                        <div class="text-xs text-black" style="font-family: Poppins;">Be a game changer, the world is already full of player.</div>
+                    <!-- Caption  -->
+                    <div class="bg-white flex items-center pt-4 px-4">
+                        <div class="text-xs text-black text-justifyé " style="font-family: Poppins;">Do good for others. It will come back in unexpected ways.</div>
                     </div>
 
                     <!-- Show comments link -->
-                    <div class="bg-white flex items-center py-2 px-4">
-                        <div class="text-xs text-gray-400 transtion duration-300 ease-in-out hover:text-black cursor-pointer" style="font-family: Poppins;">
-                            Voir les commentaires (<span x-text="commentsCount"></span>)
+                    <div class="bg-white flex items-center py-4 px-4"
+                         @click="isCommentsVisible = ! isCommentsVisible"
+                         x-show="comments.length"
+                    >
+                        <div class="text-xs text-gray-400 transtion duration-300 ease-in-out hover:text-black cursor-pointer" 
+                             style="font-family: Poppins;"
+                             x-text="displayCommentText()"
+                        >
                         </div>
                     </div>
 
                     <!-- Comments -->
-                    <div class="bg-white flex flex-col items-center pt-2 pb-4 px-4">
-                        <div class="text-black" style="font-family: Poppins;">Be a game changer, the world is already full of player.</div>
-                        <div class="text-black" style="font-family: Poppins;">Be a game changer, the world is already full of player.</div>
-                        <div class="text-black" style="font-family: Poppins;">Be a game changer, the world is already full of player.</div>
+                    <div class="bg-white flex flex-col"
+                         x-show="isCommentsVisible"
+                         x-transition:enter="transition ease-in duration-200"
+                         x-transition:enter-start="opacity-0 transform -translate-y-4"
+                         x-transition:enter-end="opacity-100 transform translate-y-0"
+                         x-transition:leave="transition ease-out duration-100"
+                         x-transition:leave-start="opacity-100 transform translate-y-0"
+                         x-transition:leave-end="opacity-0 transform -translate-y-8"
+                    >
+                        <template x-for="(comment, index) in comments" :key="comment">
+                            <div class="flex items-center justify-between py-2 px-4"
+                                 :class="(index % 2) ? 'bg-white' : 'bg-gray-100'"
+                            >
+                                <!-- Comment -->
+                                <div class="flex flex-col">
+                                    <div class="text-black text-xs" 
+                                        style="font-family: Poppins;"
+                                        x-text="comment.body"
+                                    >
+                                    </div>   
+                                    <div class="text-gray-500" 
+                                        style="font-family: Poppins; font-size:0.65rem;"
+                                        x-text="comment.author"
+                                    >
+                                    </div>   
+                                </div>
+
+                                <!-- Action: Delete comment -->
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" 
+                                         viewBox="0 0 24 24"
+                                         class="h-2 w-2 fill-current text-black cursor-pointer transition duration-300 hover:text-red-500"
+                                         title="Supprimer le commentaire"
+                                         @click="deleteComment(comment)"
+                                    >
+                                        <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </template>
                     </div>
 
                     <!-- Add comment  -->
-                    <div class="bg-white flex items-center">
-                        <form @submit.prevent="search()" class="flex-1">
+                    <div class="bg-white flex items-center" :class="(! comments.length) ? 'pt-4' : ''">
+                        <form @submit.prevent="publishComment()" class="flex-1">
                             <div class="flex">
                                 <input type="text" 
-                                    name="comment" 
-                                    placeholder="Ajouter un commentaire..." 
-                                    class="flex-1 text-xs rounded-sm bg-gray-100 py-2 px-4 focus:outline-none"
-                                    style="font-family: Poppins;" 
+                                       name="comment" 
+                                       placeholder="Add a comment..." 
+                                       class="flex-1 text-xs rounded-sm bg-gray-200 py-2 px-4 focus:outline-none"
+                                       style="font-family: Poppins;" 
+                                       x-model="inputComment"
+                                       x-on:input.debounce.100="isPublishButtonEnabled = (inputComment.length != 0) ? true : false;"
                                 />
-                                <button type="submit" class="bg-black text-white text-xs px-4 focus:outline-none" style="font-family: Poppins;">
-                                    Publier
+                                <button type="submit" 
+                                        class="text-xs px-4 focus:outline-none"
+                                        :class="(isPublishButtonEnabled) ? 'bg-black text-white' : 'bg-gray-200 text-gray-400 cursor-not-allowed'"
+                                        style="font-family: Poppins;"
+                                        x-bind:disabled="! isPublishButtonEnabled"
+                                >
+                                    Publish
                                 </button>
                             </div>
                         </form>
@@ -178,5 +231,72 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function lightbox() {
+
+                return {
+
+                    isLightboxVisible: false, 
+                    isOverlayVisible: false, 
+                    isCommentsVisible: false,
+                    isPublishButtonEnabled: false,
+                    isLiked: false, 
+                    likesCount: 85,
+                    inputComment: '',
+                    comments: [
+                        { 
+                            author: 'johndoe',
+                            body: 'Really nice !',
+                            date: ''
+                        },
+                        { 
+                            author: 'basevr',
+                            body: 'I love it !',
+                            date: ''
+                        },
+                        { 
+                            author: 'maryn',
+                            body: 'So bad...',
+                            date: ''
+                        },
+                        { 
+                            author: 'janedoe',
+                            body: 'So juicy ! I would love to master photoshop like you are !',
+                            date: ''
+                        },
+                    ],
+
+                    commentsCount() {
+                        return this.comments.length;
+                    },
+
+                    publishComment() {
+                        this.comments.unshift({
+                            author: 'sylent',
+                            body: this.inputComment,
+                            date: ''
+                        });
+
+                        this.isCommentsVisible = true;
+                        this.inputComment = '';
+                    },
+
+                    deleteComment(comment) {
+                        let position = this.comments.indexOf(comment)
+                        this.comments.splice(position, 1);
+                    },
+
+                    displayCommentText() {
+                        let plural = (this.comments.length === 1) ? 'comment' : 'comments';
+                        let linkStr = (this.isCommentsVisible) ? 'Hide ' + this.comments.length + ' ' + plural : 
+                                                                 'Show ' + this.comments.length + ' ' + plural;
+                        
+                        return linkStr;
+                    }
+
+                }
+            }
+        </script>
     </body>
 </html>

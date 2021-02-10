@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Alert: Success, with Tailwind CSS & AlpineJS</title>
+        <title>Alert box with Tailwind CSS & AlpineJS</title>
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="../img/favicon.png" />
@@ -33,12 +33,12 @@
                      x-transition:leave-start="opacity-100 translate-y-0"
                      x-transition:leave-end="opacity-0 translate-y-16"
                 >
-                    <div class="flex flex-col bg-green-100">
+                    <div class="flex flex-col bg-white">
                         <!-- Top bar -->
-                        <div class="flex justify-end">
+                        <div class="flex justify-end ">
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                  viewBox="0 0 24 24"
-                                 class="h-2 w-2 m-3 fill-current text-green-600 cursor-pointer transition duration-200 ease-in-out hover:text-green-300"
+                                 class="h-2 w-2 m-3 fill-current text-black cursor-pointer transition duration-200 ease-in-out hover:text-gray-600"
                                  @click="open = false"
                             >
                                 <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
@@ -49,12 +49,12 @@
                         <div class="flex flex-col px-8 pb-8">
                             <!-- Title -->
                             <div class="mb-4">
-                                <p class="font-bold text-green-600">Success</p>
+                                <p class="font-bold">Alert</p>
                             </div>
 
                             <!-- Body -->
                             <div>
-                                <p class="text-xs text-justify text-green-600">
+                                <p class="text-xs text-justify">
                                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quas cupiditate, 
                                     error quasi eum ea, recusandae voluptatibus harum porro libero animi quam.
                                 </p>      

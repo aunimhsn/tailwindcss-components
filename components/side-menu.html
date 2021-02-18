@@ -13,17 +13,84 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 
     <!-- Alpine JS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 
-<body class="antialiased bg-gray-200" style="font-family: 'Poppins';">
+<body class="antialiased bg-gray-100" style="font-family: 'Poppins';">
 
 
-    
+    <div x-data="{ isExtended: true }" class="flex flex-row min-h-screen">
+        <!-- Side Menu -->
+        <div class="flex flex-col bg-white w-64 shadow-md">
+ 
+            <div class="flex items-center bg-gray-900 p-4">
+                <div class="mr-4">
+                    <img src="../img/avatar.png" alt="Avatar" class="h-12 w-12 rounded-full border-2 border-white" />
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-md text-white leading-4">Welcome,</div>
+                    <div class="text-xs font-semibold text-gray-400 leading-4">@sylent</div>
+                </div>
+            </div>     
+            <div class="flex items-center mt-2 p-4">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     class="h-4 w-4 mr-4 fill-current text-gray-400"
+                >
+                    <path d="M12 2c-6.627 0-12 5.373-12 12 0 2.583.816 5.042 2.205 7h19.59c1.389-1.958 2.205-4.417 2.205-7 0-6.627-5.373-12-12-12zm-.758 2.14c.256-.02.51-.029.758-.029s.502.01.758.029v3.115c-.252-.027-.506-.042-.758-.042s-.506.014-.758.042v-3.115zm-5.763 7.978l-2.88-1.193c.157-.479.351-.948.581-1.399l2.879 1.192c-.247.444-.441.913-.58 1.4zm1.216-2.351l-2.203-2.203c.329-.383.688-.743 1.071-1.071l2.203 2.203c-.395.316-.754.675-1.071 1.071zm.793-4.569c.449-.231.919-.428 1.396-.586l1.205 2.875c-.485.141-.953.338-1.396.585l-1.205-2.874zm1.408 13.802c.019-1.151.658-2.15 1.603-2.672l1.501-7.041 1.502 7.041c.943.522 1.584 1.521 1.603 2.672h-6.209zm4.988-11.521l1.193-2.879c.479.156.948.352 1.399.581l-1.193 2.878c-.443-.246-.913-.44-1.399-.58zm2.349 1.217l2.203-2.203c.383.329.742.688 1.071 1.071l-2.203 2.203c-.316-.396-.675-.755-1.071-1.071zm2.259 3.32c-.147-.483-.35-.95-.603-1.39l2.86-1.238c.235.445.438.912.602 1.39l-2.859 1.238z"/>
+                </svg>
+                <div class="text-sm font-semibold text-gray-400">Tableau de bord</div>
+            </div>       
+            <div class="flex items-center p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24"
+                     class="h-4 w-4 mr-4 fill-current text-gray-400"
+                >
+                    <path d="M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/>
+                </svg>
+                <div class="text-sm font-semibold text-gray-400">Articles</div>
+            </div>
+            <div class="flex items-center p-4 border-r-2 border-black">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24"
+                     class="h-4 w-4 mr-4"
+                >
+                    <path d="M0 0c2.799 1.2 8.683.955 8.307 6.371l-2.143 2.186c-5.338.093-5.239-5.605-6.164-8.557zm10.884 15.402c2.708 2.048 11.824 8.451 11.824 8.451.754.513 1.662-.417 1.136-1.162 0 0-6.607-8.964-8.719-11.619-1.668-2.101-2.502-2.175-5.46-3.046l-1.953 1.997c.936 2.931 1.033 3.76 3.172 5.379zm-4.877 3.332l2.62-2.626c-.26-.244-.489-.485-.69-.724l-2.637 2.643.707.707zm8.244-11.162l4.804-4.814 2.154 2.155-4.696 4.706c.438.525.813 1.021 1.246 1.584l6.241-6.253-4.949-4.95-6.721 6.733c.705.229 1.328.483 1.921.839zm4.837-3.366l-3.972 3.981c.24.199.484.423.732.681l3.946-3.956-.706-.706zm-9.701 12.554l-3.6 3.607-2.979.825.824-2.979 3.677-3.685c-.356-.583-.617-1.203-.859-1.904l-4.626 4.635-1.824 6.741 6.773-1.791 4.227-4.234c-1-.728-1.03-.749-1.613-1.215z"/>
+                </svg>
+                <div class="text-sm font-semibold">Créations</div>
+            </div>
+            <div class="flex items-center p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24"
+                class="h-4 w-4 mr-4 fill-current text-gray-400"
+           >
+               <path d="M19.5 15c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1zm-7.18 4h-14.815l-.005-1.241c0-2.52.199-3.975 3.178-4.663 3.365-.777 6.688-1.473 5.09-4.418-4.733-8.729-1.35-13.678 3.732-13.678 6.751 0 7.506 7.595 3.64 13.679-1.292 2.031-2.64 3.63-2.64 5.821 0 1.747.696 3.331 1.82 4.5z"/>
+           </svg>
+
+                <div class="text-sm font-semibold text-gray-400">Rôles</div>
+            </div>
+            <div class="flex items-center p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24"
+                     class="h-4 w-4 mr-4 fill-current text-gray-400"
+                >
+                    <path d="M12.451 17.337l-2.451 2.663h-2v2h-2v2h-6v-5l6.865-6.949c1.08 2.424 3.095 4.336 5.586 5.286zm11.549-9.337c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-3-3c0-1.104-.896-2-2-2s-2 .896-2 2 .896 2 2 2 2-.896 2-2z"/>
+                </svg>
+                <div class="text-sm font-semibold text-gray-400">Permissions</div>
+            </div>
+            <div class="flex items-end p-4 flex-1">
+
+            </div>
+        </div>
+
+        <!-- Content -->
+
+    </div>
 
 
 </body>

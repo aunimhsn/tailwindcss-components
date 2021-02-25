@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Menu, with Tailwind CSS</title>
+    <title>Administration Panel, with Tailwind CSS</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../img/favicon.png" />
@@ -22,29 +22,42 @@
 </head>
 
 <body class="antialiased bg-gray-100" style="font-family: 'Poppins';">
-    <div class="flex flex-row min-h-screen">
-        <!-- Side Menu -->
-        <div x-data="{ isActive: false }" class="flex flex-col items-center bg-white shadow-md">
-            <a href="#" class="block p-3 bg-black">
-                <svg version="1.1" 
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 900 2000"
-                    class="h-6 w-6 fill-current text-white"
+    <!-- Status bar -->
+    <div class="fixed top-0 right-0">
+        <div class="flex items-center justify-end p-8">
+            <div class="px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24"
+                    class="h-4 w-4 fill-current text-gray-400"
                 >
-                    <g>
-                        <rect x="8.8" y="218.2" transform="matrix(0.6503 -0.7597 0.7597 0.6503 -171.45 428.7256)" width="742.3" height="364.9" />
-                        <rect x="156.9" y="1417.3" transform="matrix(0.6503 -0.7597 0.7597 0.6503 -1030.6389 960.5798)" width="742.3" height="364.9" />
-                        <rect x="82.9" y="818.4" transform="matrix(0.6503 -0.7597 0.7597 0.6503 -601.5629 694.9067)" width="742.3" height="364.9" />
-                    </g>
+                    <path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/>
                 </svg>
-            </a> 
+            </div>
+            <div class="px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24"
+                    class="h-4 w-4 fill-current text-gray-400"
+                >
+                    <path d="M15.137 3.945c-.644-.374-1.042-1.07-1.041-1.82v-.003c.001-1.172-.938-2.122-2.096-2.122s-2.097.95-2.097 2.122v.003c.001.751-.396 1.446-1.041 1.82-4.667 2.712-1.985 11.715-6.862 13.306v1.749h20v-1.749c-4.877-1.591-2.195-10.594-6.863-13.306zm-3.137-2.945c.552 0 1 .449 1 1 0 .552-.448 1-1 1s-1-.448-1-1c0-.551.448-1 1-1zm3 20c0 1.598-1.392 3-2.971 3s-3.029-1.402-3.029-3h6z"/>
+                </svg>
+            </div>
+            <div class="font-semibold ml-4">
+                <img src="../img/avatar-male.png" class="h-8 w-8" />
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="max-w-lg"></div> -->
+    <div class="flex lg:px-36 mt-36">
+        <!-- Side menu -->
+        <div class="fixed">
             <a href="#" 
                class="block p-4 transition duration-300 ease-out hover:bg-gray-100" 
                @click="isActive"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" 
                      viewBox="0 0 24 24"
-                     class="h-4 w-4"
+                     class="h-6 w-6"
                 >
                     <path d="M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/>
                 </svg>
@@ -52,15 +65,15 @@
             <a href="#" class="block p-4 transition duration-300 ease-out bg-gray-200">
                 <svg xmlns="http://www.w3.org/2000/svg" 
                      viewBox="0 0 24 24"
-                     class="h-4 w-4"
+                     class="h-6 w-6"
                 >
                     <path d="M0 0c2.799 1.2 8.683.955 8.307 6.371l-2.143 2.186c-5.338.093-5.239-5.605-6.164-8.557zm10.884 15.402c2.708 2.048 11.824 8.451 11.824 8.451.754.513 1.662-.417 1.136-1.162 0 0-6.607-8.964-8.719-11.619-1.668-2.101-2.502-2.175-5.46-3.046l-1.953 1.997c.936 2.931 1.033 3.76 3.172 5.379zm-4.877 3.332l2.62-2.626c-.26-.244-.489-.485-.69-.724l-2.637 2.643.707.707zm8.244-11.162l4.804-4.814 2.154 2.155-4.696 4.706c.438.525.813 1.021 1.246 1.584l6.241-6.253-4.949-4.95-6.721 6.733c.705.229 1.328.483 1.921.839zm4.837-3.366l-3.972 3.981c.24.199.484.423.732.681l3.946-3.956-.706-.706zm-9.701 12.554l-3.6 3.607-2.979.825.824-2.979 3.677-3.685c-.356-.583-.617-1.203-.859-1.904l-4.626 4.635-1.824 6.741 6.773-1.791 4.227-4.234c-1-.728-1.03-.749-1.613-1.215z"/>
                 </svg>
             </a>
-            <a href="#" class="block p-4 transition duration-300 ease-out hover:bg-gray-100">
+            <a href="#" class="block p-4 transition duration-300 ease-out fill-current text-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" 
                      viewBox="0 0 24 24"
-                     class="h-4 w-4"
+                     class="h-6 w-6"
                 >
                     <path d="M19.5 15c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1zm-7.18 4h-14.815l-.005-1.241c0-2.52.199-3.975 3.178-4.663 3.365-.777 6.688-1.473 5.09-4.418-4.733-8.729-1.35-13.678 3.732-13.678 6.751 0 7.506 7.595 3.64 13.679-1.292 2.031-2.64 3.63-2.64 5.821 0 1.747.696 3.331 1.82 4.5z"/>
                 </svg>
@@ -68,12 +81,21 @@
             <a href="#" class="block p-4 transition duration-300 ease-out hover:bg-gray-100">
                 <svg xmlns="http://www.w3.org/2000/svg" 
                      viewBox="0 0 24 24"
-                     class="h-4 w-4"
+                     class="h-6 w-6"
                 >
                     <path d="M12.451 17.337l-2.451 2.663h-2v2h-2v2h-6v-5l6.865-6.949c1.08 2.424 3.095 4.336 5.586 5.286zm11.549-9.337c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-3-3c0-1.104-.896-2-2-2s-2 .896-2 2 .896 2 2 2 2-.896 2-2z"/>
                 </svg>
             </a>
-        </div>  
+        </div>
+        <!-- Body -->
+        <div class="flex-1">
+            
+        </div>
+    </div>
+
+    <!-- Version -->
+    <div class="fixed left-0 bottom-0 p-8">
+        <div class="text-gray-400 text-xs">Version: 0.1</div>
     </div>
 </body>
 </html>

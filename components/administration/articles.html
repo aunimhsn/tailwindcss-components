@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration Panel, with Tailwind CSS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../img/favicon.png" />
+
+    <!-- Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- Alpine JS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body class="antialiased bg-gray-100" style="font-family: 'Poppins';">
+    <div class="flex">
+        <!-- Side bar -->
+        <div class="flex flex-col items-center bg-white min-h-screen shadow-md" style="min-width: 10%;">
+            <!-- Avatar -->
+            <div class="flex flex-col items-center p-12">
+                <div class="text-center">
+                    <img src="../../img/avatar-male.png" alt="Avatar" title="Avatar" class="h-12 mb-2" />
+                </div>
+                <div class="text-sm font-bold">
+                    John Doe
+                </div>
+                <div class="font-semibold text-xs text-gray-400 uppercase">
+                    Administrator
+                </div>
+            </div>
+
+            <!-- Menu -->
+            <div class="flex flex-col items-center p-12">
+                <!-- Dashboard -->
+                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         viewBox="0 0 24 24"
+                         class="h-6 w-6"
+                    >
+                         <path d="M23.949 13c-.509 6.158-5.66 11-11.949 11-6.627 0-12-5.373-12-12 0-6.29 4.842-11.44 11-11.95v12.95h12.949zm-10.949-2h10.949c-.481-5.828-5.122-10.467-10.949-10.95v10.95z"/>
+                    </svg>
+                </a>
+                <!-- Articles -->
+                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         viewBox="0 0 24 24"
+                         class="h-6 w-6"
+                    >
+                        <path d="M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/>
+                    </svg>
+                </a>
+                <!-- Creations -->
+                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24"
+                            class="h-6 w-6"
+                    >
+                        <path d="M0 0c2.799 1.2 8.683.955 8.307 6.371l-2.143 2.186c-5.338.093-5.239-5.605-6.164-8.557zm10.884 15.402c2.708 2.048 11.824 8.451 11.824 8.451.754.513 1.662-.417 1.136-1.162 0 0-6.607-8.964-8.719-11.619-1.668-2.101-2.502-2.175-5.46-3.046l-1.953 1.997c.936 2.931 1.033 3.76 3.172 5.379zm-4.877 3.332l2.62-2.626c-.26-.244-.489-.485-.69-.724l-2.637 2.643.707.707zm8.244-11.162l4.804-4.814 2.154 2.155-4.696 4.706c.438.525.813 1.021 1.246 1.584l6.241-6.253-4.949-4.95-6.721 6.733c.705.229 1.328.483 1.921.839zm4.837-3.366l-3.972 3.981c.24.199.484.423.732.681l3.946-3.956-.706-.706zm-9.701 12.554l-3.6 3.607-2.979.825.824-2.979 3.677-3.685c-.356-.583-.617-1.203-.859-1.904l-4.626 4.635-1.824 6.741 6.773-1.791 4.227-4.234c-1-.728-1.03-.749-1.613-1.215z"/>
+                    </svg>
+                </a>
+                <!-- Users -->
+                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24"
+                            class="h-6 w-6"
+                    >
+                        <path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/>
+                    </svg>
+                </a>
+                <!-- Roles -->
+                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 24 24"
+                            class="h-6 w-6"
+                    >
+                        <path d="M16 6h-8v-6h8v6zm-10 12h-6v6h6v-6zm18 0h-6v6h6v-6zm-11-7v-3h-2v3h-9v5h2v-3h7v3h2v-3h7v3h2v-5h-9zm2 7h-6v6h6v-6z"/>
+                    </svg>
+                </a>
+                <!-- Permissions -->
+                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         viewBox="0 0 24 24"
+                         class="h-6 w-6"
+                    >
+                        <path d="M12.451 17.337l-2.451 2.663h-2v2h-2v2h-6v-5l6.865-6.949c1.08 2.424 3.095 4.336 5.586 5.286zm11.549-9.337c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-3-3c0-1.104-.896-2-2-2s-2 .896-2 2 .896 2 2 2 2-.896 2-2z"/>
+                    </svg>
+                </a>
+            </div>
+            <!-- Footer -->
+            <div class="flex flex-col items-center p-12">
+                <!-- Exit -->
+                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         viewBox="0 0 24 24"
+                         class="h-6 w-6"
+                    >
+                        <path d="M11 21h8v-2l1-1v4h-9v2l-10-3v-18l10-3v2h9v5l-1-1v-3h-8v18zm10.053-9l-3.293-3.293.707-.707 4.5 4.5-4.5 4.5-.707-.707 3.293-3.293h-9.053v-1h9.053z"/>
+                    </svg>
+                </a>
+                <div class="text-xs">
+                    Version 1.0
+                </div>
+            </div>
+        </div>
+        <!-- Right side  -->
+        <div class="flex flex-col flex-1">
+            <!-- Top bar -->
+            <div class="flex items-center justify-between p-12">
+                <!-- Welcome -->
+                <div class="flex flex-col">
+                    <div>
+                        <h2 class="text-2xl font-extrabold">Welcome John</h2>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600">
+                            Be the change you wish to see in the world. -Mahatma Gandhi
+                        </p>
+                    </div>
+                </div>
+                <!-- Search & Notifications -->
+                <div class="flex items-center">
+                    <div class="p-4">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24"
+                             class="h-5 w-5"
+                        >
+                            <path d="M15.137 3.945c-.644-.374-1.042-1.07-1.041-1.82v-.003c.001-1.172-.938-2.122-2.096-2.122s-2.097.95-2.097 2.122v.003c.001.751-.396 1.446-1.041 1.82-4.667 2.712-1.985 11.715-6.862 13.306v1.749h20v-1.749c-4.877-1.591-2.195-10.594-6.863-13.306zm-3.137-2.945c.552 0 1 .449 1 1 0 .552-.448 1-1 1s-1-.448-1-1c0-.551.448-1 1-1zm3 20c0 1.598-1.392 3-2.971 3s-3.029-1.402-3.029-3h6z"/>
+                        </svg>
+                    </div>
+                    <div class="py-4 pl-4">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24"
+                             class="h-5 w-5"
+                        >
+                            <path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body -->
+            <div class="flex flex-col bg-white mx-12 mb-12 mt-6 shadow-md rounded-sm">
+                <!-- Title -->
+                <div class="relative px-12 pt-12 mb-6">
+                    <h1 class="font-extrabold text-6xl absolute -top-8 left-12 uppercase">Articles</h1>
+                </div>
+
+                <!-- 
+                    Header articles list 
+                    TO DO: Use grid... 
+                -->
+                <div class="flex px-12 pb-12">
+                    <div class="mr-4">
+                        <h5 class="font-bold">#</h5>
+                    </div>
+                    <div class="flex-1">
+                        <h5 class="font-bold">Title</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

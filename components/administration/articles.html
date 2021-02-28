@@ -50,12 +50,13 @@
                     </svg>
                 </a>
                 <!-- Articles -->
-                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400">
+                <!-- Background and radius for active link -->
+                <a href="#" class="block p-4 fill-current text-black transition duration-300 ease-out hover:text-gray-400 bg-gray-200 rounded-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" 
                          viewBox="0 0 24 24"
                          class="h-6 w-6"
                     >
-                        <path d="M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/>
+                        <path d="M2 0v24h20v-24h-20zm18 22h-16v-15h16v15zm-3-4h-10v-1h10v1zm0-3h-10v-1h10v1zm0-3h-10v-1h10v1z"/>
                     </svg>
                 </a>
                 <!-- Creations -->
@@ -128,43 +129,156 @@
                 </div>
                 <!-- Search & Notifications -->
                 <div class="flex items-center">
-                    <div class="p-4">
+                    <a href="#" class="m-4 fill-current transition duration-300 ease-in-out hover:text-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 24 24"
                              class="h-5 w-5"
                         >
                             <path d="M15.137 3.945c-.644-.374-1.042-1.07-1.041-1.82v-.003c.001-1.172-.938-2.122-2.096-2.122s-2.097.95-2.097 2.122v.003c.001.751-.396 1.446-1.041 1.82-4.667 2.712-1.985 11.715-6.862 13.306v1.749h20v-1.749c-4.877-1.591-2.195-10.594-6.863-13.306zm-3.137-2.945c.552 0 1 .449 1 1 0 .552-.448 1-1 1s-1-.448-1-1c0-.551.448-1 1-1zm3 20c0 1.598-1.392 3-2.971 3s-3.029-1.402-3.029-3h6z"/>
                         </svg>
-                    </div>
-                    <div class="py-4 pl-4">
+                    </a>
+                    <a href="#" class="my-4 ml-4 fill-current transition duration-300 ease-in-out hover:text-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 24 24"
                              class="h-5 w-5"
                         >
                             <path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/>
                         </svg>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <!-- Body -->
-            <div class="flex flex-col bg-white mx-12 mb-12 mt-6 shadow-md rounded-sm">
-                <!-- Title -->
-                <div class="relative px-12 pt-12 mb-6">
-                    <h1 class="font-extrabold text-6xl absolute -top-8 left-12 uppercase">Articles</h1>
+            <div class="flex flex-col bg-white mx-12 mb-12 mt-6 shadow-md rounded-t-sm">
+                <!-- Title & Breadcrumb -->
+                <div class="relative px-12 pt-12 mb-10">
+                    <div class="absolute -top-8 left-12">
+                        <h1 class="font-extrabold text-6xl  uppercase">Articles</h1>
+                        <h2 class="uppercase text-xs font-bold text-gray-400">All articles</h2>
+                    </div>
                 </div>
 
-                <!-- 
-                    Header articles list 
-                    TO DO: Use grid... 
-                -->
-                <div class="flex px-12 pb-12">
-                    <div class="mr-4">
+                <!-- New article -->
+                <div class="px-12 mb-12">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         class="h-6 w-6"
+                    >
+                        <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                    </svg>
+                </div>
+
+                <!-- Article list -->
+                <div class="grid grid-cols-12 gap-4 px-12 mb-12">
+                    <!-- Header -->
+                    <div class="col-span-1">
                         <h5 class="font-bold">#</h5>
                     </div>
-                    <div class="flex-1">
+                    <div class="col-span-5">
                         <h5 class="font-bold">Title</h5>
                     </div>
+                    <div class="col-span-2">
+                        <h5 class="font-bold">Author</h5>
+                    </div>
+                    <div class="col-span-2">
+                        <h5 class="font-bold">Publication date</h5>
+                    </div>
+                    <div class="col-span-2">
+                        <h5 class="font-bold">...</h5>
+                    </div>
+
+                    <!-- First row -->
+                    <div class="col-span-1">
+                        <h5 class="">1.</h5>
+                    </div>
+                    <div class="col-span-5">
+                        <h5 class="">Lorem ipsum dolor</h5>
+                    </div>
+                    <div class="col-span-2">
+                        <h5 class="">John Doe</h5>
+                    </div>
+                    <div class="col-span-2">
+                        <h5 class="">26/02/2021</h5>
+                    </div>
+                    <!-- Actions -->
+                    <div class="col-span-2">
+                        <div class="flex items-center">
+                            <a href="#" class="fill-current transition duration-300 ease-in-out hover:text-gray-400 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    class="w-4 h-4"
+                                >
+                                    <path d="M15 12c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-.199.02-.393.057-.581 1.474.541 2.927-.882 2.405-2.371.174-.03.354-.048.538-.048 1.657 0 3 1.344 3 3zm-2.985-7c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 12c-2.761 0-5-2.238-5-5 0-2.761 2.239-5 5-5 2.762 0 5 2.239 5 5 0 2.762-2.238 5-5 5z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="fill-current transition duration-300 ease-in-out hover:text-gray-400 mx-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    class="w-4 h-4"
+                                >
+                                    <path d="M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="fill-current transition duration-300 ease-in-out hover:text-gray-400 ml-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    class="w-4 h-4"
+                                >
+                                    <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End row --> 
+
+                    <!-- Second row -->
+                    <div class="col-span-1">
+                        <h5 class="">2.</h5>
+                    </div>
+                    <div class="col-span-5">
+                        <h5 class="">Sit amet</h5>
+                    </div>
+                    <div class="col-span-2">
+                        <h5 class="">John Doe</h5>
+                    </div>
+                    <div class="col-span-2">
+                        <h5 class="">05/02/2021</h5>
+                    </div>
+                    
+                    <!-- Actions -->
+                    <div class="col-span-2">
+                        <div class="flex items-center">
+                            <a href="#" class="fill-current transition duration-300 ease-in-out hover:text-gray-400 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 24 24"
+                                     class="w-4 h-4"
+                                >
+                                    <path d="M15 12c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-.199.02-.393.057-.581 1.474.541 2.927-.882 2.405-2.371.174-.03.354-.048.538-.048 1.657 0 3 1.344 3 3zm-2.985-7c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 12c-2.761 0-5-2.238-5-5 0-2.761 2.239-5 5-5 2.762 0 5 2.239 5 5 0 2.762-2.238 5-5 5z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="fill-current transition duration-300 ease-in-out hover:text-gray-400 mx-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    class="w-4 h-4"
+                                >
+                                    <path d="M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="fill-current transition duration-300 ease-in-out hover:text-gray-400 ml-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    class="w-4 h-4"
+                                >
+                                    <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End row --> 
+                </div>
+
+                <div class="flex justify-end bg-gray-200 py-1 px-2 rounded-b-sm shadow-md">
+                    <p class="text-xs font-semibold text-gray-400 uppercase">Articles count: 2</p> 
                 </div>
             </div>
         </div>

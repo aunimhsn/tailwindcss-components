@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Select form with Tailwind CSS & AlpineJS</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="../img/favicon.png" />
+
+        <!-- Tailwind CSS -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- Alpine JS -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    </head>
+
+    <body class="antialiased bg-gray-200 min-h-screen" style="font-family: 'Poppins';">
+        <div class="flex justify-center items-center h-screen">
+            <div class="flex-1 max-w-lg p-8 mx-2 bg-white rounded-sm shadow-md">
+                <section class="pt-2 pb-4">
+                    <h1 class="text-xl font-extrabold uppercase">Select</h1>
+                    <p class="text-sm text-gray-400">
+                        The creative adult is the child who survived.
+                    </p>
+                </section>
+
+                <section class="mt-6">
+                    <form class="flex flex-col" method="POST" action="#">
+                        
+                        <!-- Choice your country -->
+                        <div x-data="{ isOpen: false }" 
+                             class="relative pt-3 mb-6 bg-gray-100 rounded-sm">
+                            <label class="block mx-3 mb-2 text-xs font-bold text-gray-700 uppercase" for="country">
+                                Country
+                            </label>
+                            <div @click="isOpen = true"
+                                 @click.away="isOpen = false" 
+                                 class="font-semibold text-sm w-full px-3 pb-3 text-sm text-gray-700 transition duration-300 bg-gray-100 border-b-2 border-gray-200 rounded-sm hover:border-gray-600 cursor-pointer">
+                                France
+                            </div>
+
+                            <div x-show="isOpen"
+                                 class="w-full h-24 absolute top-20 flex flex-col bg-red-600">
+                            </div>
+
+                            <input type="hidden" name="class_id" value=""  />
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </body>
+
+</html>

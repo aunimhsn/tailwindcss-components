@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +22,7 @@
 
     <body class="antialiased bg-gray-200 min-h-screen" style="font-family: 'Poppins';">
         <div class="flex justify-center items-center h-screen">
-            <div class="flex-1 max-w-lg p-8 mx-2 bg-white rounded-sm shadow-md">
+            <div class="flex-1 max-w-lg p-8 mx-2 bg-white h-96 rounded-sm shadow-md">
                 <section class="pt-2 pb-4">
                     <h1 class="text-xl font-extrabold uppercase">Select</h1>
                     <p class="text-sm text-gray-400">
@@ -32,30 +31,33 @@
                 </section>
 
                 <section class="mt-6">
-                    <form class="flex flex-col" method="POST" action="#">
-                        
+                    <form class="flex flex-col" method="POST" action="#">      
                         <!-- Choice your country -->
-                        <div x-data="{ isOpen: false }" 
+                        <div x-data="{ isOpen: false, active: 'Argentine' }" 
                              class="relative pt-3 mb-6 bg-gray-100 rounded-sm">
                             <label class="block mx-3 mb-2 text-xs font-bold text-gray-700 uppercase" for="country">
                                 Country
                             </label>
                             <div @click="isOpen = true"
                                  @click.away="isOpen = false" 
-                                 class="font-semibold text-sm w-full px-3 pb-3 text-sm text-gray-700 transition duration-300 bg-gray-100 border-b-2 border-gray-200 rounded-sm hover:border-gray-600 cursor-pointer">
-                                France
+                                 x-text="active"
+                                 class="font-semibold text-sm w-full px-3 pb-3 text-sm text-gray-700 transition duration-300 bg-gray-100 border-b-2 border-gray-200 rounded-sm hover:border-gray-600 cursor-pointer"
+                            >
                             </div>
 
                             <div x-show="isOpen"
-                                 class="w-full h-24 absolute top-20 flex flex-col bg-red-600">
+                                 class="absolute top-18 w-full flex flex-col bg-gray-200 font-poppins text-sm cursor-pointer">
+                                 <div class="px-3 py-2 text-gray-400 font-semibold hover:bg-gray-100 hover:text-gray-600" @click="active = 'Argentine'">Argentine</div>
+                                 <div class="px-3 py-2 text-gray-400 font-semibold hover:bg-gray-100 hover:text-gray-600" @click="active = 'Bénin'">Bénin</div>
+                                 <div class="px-3 py-2 text-gray-400 font-semibold hover:bg-gray-100 hover:text-gray-600" @click="active = 'Colombie'">Colombie</div>
+                                 <div class="px-3 py-2 text-gray-400 font-semibold hover:bg-gray-100 hover:text-gray-600" @click="active = 'Danemark'">Danemark</div>
                             </div>
 
-                            <input type="hidden" name="class_id" value=""  />
+                            <input type="hidden" name="country_id" :value="active"  />
                         </div>
                     </form>
                 </section>
             </div>
         </div>
     </body>
-
 </html>

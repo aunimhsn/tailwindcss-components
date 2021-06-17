@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form bis</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0-canary.16/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100" style="font-family: 'Poppins';">
+    <section class="flex justify-center items-center h-screen">
+        <div class="bg-white w-96 p-8 rounded-xs shadow-md">
+            <h1 class="uppercase font-bold text-xl mb-4">Login</h1>
+
+            <form>
+                <input class="bg-gray-200 text-gray-900 text-sm p-2 w-full mb-4 focus:outline-none" 
+                       type="text" 
+                       placeholder="Username" 
+                       name="username" 
+                       autofocus 
+                />
+                
+                <input class="bg-gray-200 text-gray-900 text-sm p-2 w-full mb-4 focus:outline-none" 
+                       type="password" 
+                       placeholder="Password" 
+                       name="password" 
+                />
+
+                <div class="flex justify-between mb-4">
+                    <!-- Stay connected checkbox -->
+                    <div class="flex items-center">
+                        <input class="mr-2" type="checkbox" name="stay-connected">
+                        <span class="text-xs">Stay connected</span>
+                    </div>
+
+                    <a href="#" class="text-xs text-blue-600 hover:text-blue-900">Forgot password?</p>
+                </div>
+
+                <button type="button" 
+                        class="p-4 text-white bg-blue-600 hover:bg-blue-900 w-full rounded-sm transition ease-in-out duration-300 uppercase mb-2"
+                >
+                    Sign in
+                </button>
+            </form>
+
+        </div>
+    </section>
+</body>
+</html>

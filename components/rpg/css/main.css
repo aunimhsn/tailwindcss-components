@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap');
+
+body {
+    font-family: 'Antic Slab', serif;
+}
+
+section {
+    background-image: url('../img/bg.jpg');
+}
+
+section > div {
+    background-image: url('../img/scroll-texture.png');
+    background-size: contain;
+}
+
+h1, input {
+    color: #301506;
+}
+
+input::placeholder {
+    color: #F59E0B;
+}
+
+button {
+    background-image: url('../img/wood-texture.png');
+    background-size: contain;
+}

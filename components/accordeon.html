@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accordeon,  with Tailwind CSS & AlpineJS</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
+
     <!-- Tailwind CSS -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Alpine JS -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="flex items-center justify-center h-screen" style="font-family: 'Poppins';">
+<body class="flex items-center justify-center h-screen bg-gray-100" style="font-family: 'Poppins';">
     
 
-    <main class="bg-white shadow-md w-96 p-10">
+    <main class="bg-white shadow-md w-96 min-h-64 p-10">
 
         <!-- Title -->
         <div class="mb-8">
@@ -25,7 +28,8 @@
 
 
         <div x-data="{ open: false }">
-            <div class="cursor-pointer p-2 hover:bg-blue-200 bg-blue-100 flex justify-between items-center rounded-sm"
+            <!-- First lesson -->
+            <div class="cursor-pointer p-2 flex border-b border-gray-200 hover:border-gray-300 justify-between items-center rounded-sm"
                  @click="open = !open"
             >
                 <h3 class="text-sm">First lesson</h3>
@@ -37,8 +41,41 @@
                      <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
                 </svg>
             </div>
-            <div x-show="open">
-                <p class="text-xs">
+            <div x-show="open"
+                 x-transition:enter="transition ease-in duration-100"
+                 x-transition:enter-start="opacity-0 transform -translate-y-4"
+                 x-transition:enter-end="opacity-100 transform translate-y-0"
+                 x-transition:leave="transition ease-out duration-100"
+                 x-transition:leave-start="opacity-100 transform translate-y-0"
+                 x-transition:leave-end="opacity-0 transform -translate-y-4"
+            >
+                <p class="text-xs p-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque molestie semper maximus. 
+                </p>
+            </div>
+
+            <!-- Second lesson -->
+            <div class="cursor-pointer p-2 flex border-b border-gray-200 hover:border-gray-300 justify-between items-center rounded-sm"
+                 @click="open = !open"
+            >
+                <h3 class="text-sm">Second lesson</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24"
+                        class="h-3 w-3 transform transition duration-100"
+                        :class="(open) ? 'rotate-90' : ''"
+                >
+                        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
+                </svg>
+            </div>
+            <div x-show="open"
+                    x-transition:enter="transition ease-in duration-100"
+                    x-transition:enter-start="opacity-0 transform -translate-y-4"
+                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                    x-transition:leave="transition ease-out duration-100"
+                    x-transition:leave-start="opacity-100 transform translate-y-0"
+                    x-transition:leave-end="opacity-0 transform -translate-y-4"
+            >
+                <p class="text-xs p-2">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque molestie semper maximus. 
                 </p>
             </div>

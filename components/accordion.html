@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accordeon,  with Tailwind CSS & AlpineJS</title>
+    <title>Accordion,  with Tailwind CSS & AlpineJS</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../img/favicon.png" />
@@ -22,26 +22,26 @@
 
         <!-- Title -->
         <div class="mb-8">
-            <h1 class="text-2xl font-bold">Accordeon</h1>
+            <h1 class="text-2xl font-bold">Accordion</h1>
             <h2 class="text-gray-600">Alpine JS & Tailwind CSS</h2>
         </div>
 
 
-        <div x-data="{ open: false }">
+        <div x-data="{ open: [false, false] }">
             <!-- First lesson -->
             <div class="cursor-pointer p-2 flex border-b border-gray-200 hover:border-gray-300 justify-between items-center rounded-sm"
-                 @click="open = !open"
+                 @click="open[0] = !open[0]"
             >
                 <h3 class="text-sm">First lesson</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" 
                      viewBox="0 0 24 24"
                      class="h-3 w-3 transform transition duration-100"
-                     :class="(open) ? 'rotate-90' : ''"
+                     :class="(open[0]) ? 'rotate-90' : ''"
                 >
                      <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
                 </svg>
             </div>
-            <div x-show="open"
+            <div x-show="open[0]"
                  x-transition:enter="transition ease-in duration-100"
                  x-transition:enter-start="opacity-0 transform -translate-y-4"
                  x-transition:enter-end="opacity-100 transform translate-y-0"
@@ -56,18 +56,18 @@
 
             <!-- Second lesson -->
             <div class="cursor-pointer p-2 flex border-b border-gray-200 hover:border-gray-300 justify-between items-center rounded-sm"
-                 @click="open = !open"
+                 @click="open[1] = !open[1]"
             >
                 <h3 class="text-sm">Second lesson</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" 
                         viewBox="0 0 24 24"
                         class="h-3 w-3 transform transition duration-100"
-                        :class="(open) ? 'rotate-90' : ''"
+                        :class="(open[1]) ? 'rotate-90' : ''"
                 >
                         <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
                 </svg>
             </div>
-            <div x-show="open"
+            <div x-show="open[1]"
                     x-transition:enter="transition ease-in duration-100"
                     x-transition:enter-start="opacity-0 transform -translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smart tag with Tailwind CSS & AlpineJS</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="../img/favicon.png" />
+
+        <!-- Tailwind CSS -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- Alpine JS -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    </head>
+
+    <body class="antialiased bg-gray-100 min-h-screen" style="font-family: 'Poppins';"> 
+        <div class="flex flex-col h-screen justify-center items-center">      
+            <div class="bg-white p-8 shadow-md">
+                <!-- Title -->
+                <h1 class="text-lg font-extrabold">Smart tag</h1>
+                <h2 class="text-sm text-gray-400 mb-8">Alpine JS & Tailwind CSS</h1>
+
+                <!-- Tag -->
+                <div class="flex">
+                    <div class="flex-1">
+                        <div x-data="{ isActive: false }" class="relative">
+                            <div class="bg-yellow-100 text-yellow-500 text-sm p-2 rounded-sm text-center cursor-pointer"
+                                 @mouseover="isActive = true"
+                                 @mouseover.away="isActive = false">
+                                See more
+                            </div>
+ 
+                            <div x-show="isActive" class="absolute top-10 w-64 text-xs bg-yellow-100 shadow-md py-2 px-4">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident laboriosam magnam quod. In ipsum eius voluptatibus consequatur fugit? Fugit animi eos voluptatibus enim aspernatur culpa illo. Quidem ipsum hic eaque.
+                            </div>
+           
+                        </div>
+ 
+                    </div>
+                </div>
+            </div>             
+        </div>
+    </body>
+
+</html>

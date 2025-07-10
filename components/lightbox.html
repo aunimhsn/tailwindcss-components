@@ -266,13 +266,22 @@
                     },
 
                     publishComment() {
+                        if (this.inputComment.trim().length === 0) {
+                            this.resetComment()
+                            return
+                        }
+
                         this.comments.push({
                             author: 'johndoe',
-                            body: this.inputComment,
+                            body: this.inputComment.trim(),
                             date: ''
                         });
 
                         this.isCommentsVisible = true;
+                        this.resetComment()
+                    },
+
+                    resetComment() {
                         this.isPublishButtonEnabled = false;
                         this.inputComment = '';
                         this.scrollToLightboxBottom();
